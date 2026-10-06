@@ -18,5 +18,26 @@
     <h2>このサイトについて</h2>
     <p>GitHub Pagesを使って公開しています。</p>
 
+
+    <h2>計算機</h2>
+
+<input type="number" id="num1">
+<input type="number" id="num2">
+
+<button onclick="keisan()">計算する</button>
+
+<p>結果：<span id="result">---</span></p>
+
+<script>
+function keisan() {
+
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
+
+    let result = num1 + num2;
+
+    document.getElementById("result").textContent = result;
+}
+</script>
 </body>
 </html>
