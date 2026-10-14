@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>くりまるのホームページ</title>
-</head>
+
+    <style>
+    #map-app {
+        max-width: 800px;
+        margin: 20px 0;
+    }
+
+    #map-search {
+        width: 65%;
+        height: 40px;
+        box-sizing: border-box;
+    }
+
+    #map-app button {
+        height: 40px;
+        padding: 0 16px;
+        cursor: pointer;
+    }
+
+    #map-frame {
+        width: 100%;
+        height: 450px;
+        border: 0;
+        margin-top: 12px;
+    }
+</style>
+    </head>
 <body>
 
     <h1>くりまるのホームページ</h1>
@@ -48,5 +74,42 @@ function keisan() {
     allowfullscreen=""
     loading="lazy">
 </iframe>
+    <h2>地図アプリ</h2>
+
+<div id="map-app">
+
+    <input
+        type="text"
+        id="map-search"
+        placeholder="場所を入力（例：仙台駅）">
+
+    <button onclick="searchMap()">検索</button>
+
+    <iframe
+        id="map-frame"
+        src="https://maps.google.com/maps?q=Sendai%20Station&output=embed"
+        loading="lazy"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+<script>
+function searchMap() {
+
+    let place =
+        document.getElementById("map-search").value;
+
+    if (place.trim() === "") {
+        alert("場所を入力してください");
+        return;
+    }
+
+    document.getElementById("map-frame").src =
+        "https://maps.google.com/maps?q="
+        + encodeURIComponent(place)
+        + "&output=embed";
+}
+</script>
 </body>
 </html>
